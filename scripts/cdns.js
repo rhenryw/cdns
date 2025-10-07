@@ -76,9 +76,24 @@
       var attr=selectTargetAttribute(element)
       if(!attr)return
       var url=buildUrl(parsed.user,parsed.repo,commit,parsed.path,lg)
-      element.setAttribute(attr,url)
-      element.setAttribute(processedAttributeName,'1')
-      element.removeAttribute('cdn')
+      var tagName=element.tagName.toLowerCase()
+      if(tagName==='script'&&element.parentNode){
+        var clone=document.createElement('script')
+        var atts=element.attributes
+        for(var ai=0;ai<atts.length;ai++){
+          var a=atts[ai]
+          var n=a.name
+          if(n==='cdn'||n===processedAttributeName||n==='src'||n==='href')continue
+          clone.setAttribute(n,a.value)
+        }
+        clone.setAttribute(attr,url)
+        clone.setAttribute(processedAttributeName,'1')
+        element.parentNode.replaceChild(clone,element)
+      }else{
+        element.setAttribute(attr,url)
+        element.setAttribute(processedAttributeName,'1')
+        element.removeAttribute('cdn')
+      }
     })
   }
 
