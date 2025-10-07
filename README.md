@@ -1,5 +1,5 @@
 CDN like never before
-
+[![](https://data.jsdelivr.com/v1/package/gh/rhenryw/cdns/badge?style=rounded)](https://www.jsdelivr.com/package/gh/rhenryw/cdns)
 ## Usage
 
 Add:
