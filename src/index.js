@@ -96,13 +96,13 @@
     if (!parsed) return;
 
     const commit = await resolveCommit(parsed.user, parsed.repo, parsed.params);
-    if (!commit) return;
+    const commitOrRef = commit || parsed.params?.ref || 'main';
 
     const attr = getattr(element);
     if (!attr) return;
 
     const provider = parsed.params?.lg || '0';
-    const url = defaults.providers[provider](parsed.user, parsed.repo, commit, parsed.path);
+    const url = defaults.providers[provider](parsed.user, parsed.repo, commitOrRef, parsed.path);
     const tag = element.tagName.toLowerCase();
 
     if (tag === 'script' && element.parentNode) {
