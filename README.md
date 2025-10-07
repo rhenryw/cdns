@@ -2,21 +2,25 @@ CDN like never before
 
 ## Usage
 
-Include the loader, then annotate elements with a `cdn` attribute. The loader will resolve a commit SHA via the GitHub API and replace `cdn` with `src` or `href` automatically.
+Add:
 
 ```html
-<script src="/scripts/cdns.js"></script>
-
-<!-- script -->
-<script cdn="user/repo/path/to/file.js lg=0"></script>
-
-<!-- stylesheet -->
-<link rel="stylesheet" cdn="user/repo/path/to/styles.css lg=1">
-
-<!-- image -->
-<img cdn="user/repo/assets/logo.png lg=0">
+<script src="https://cdn.jsdelivr.net/gh/rhenryw/cdns@main/scripts/cdns.js"></script>
 ```
 
+between `<head>` and `</head>` in your html.
+
+Then use like so:
+
+```html
+<img cdn="rhenryw/lupine/public/tinyTitle.png lg=1 ref=main">
+```
+
+or
+
+```html
+<script cdn="rhenryw/cdns/scripts/cdns.js lg=0 ref=main sha=7478a1bc5c898948999d6a2b67f68bde476b9e52">
+```
 ## Attribute format
 
 - **cdn**: `{user}/{repo}/{path} [lg=0|1] [ref=branch|tag] [sha=commit]`
