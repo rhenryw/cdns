@@ -5,7 +5,7 @@ CDN like never before
 Add:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/rhenryw/cdns@main/scripts/cdns.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/rhenryw/cdns@main/src/index.min.js"></script>
 ```
 
 between `<head>` and `</head>` in your html.
@@ -19,7 +19,7 @@ Then use like so:
 or
 
 ```html
-<script cdn="rhenryw/cdns/scripts/cdns.js lg=0 ref=main sha=7478a1bc5c898948999d6a2b67f68bde476b9e52">
+<script cdn="rhenryw/cdns/src/index.min.js lg=0 ref=main sha=7478a1bc5c898948999d6a2b67f68bde476b9e52">
 ```
 ## Attribute format
 
